@@ -3,7 +3,7 @@ from datetime import datetime
 
 
 def main():
-    with open("operations.json") as json_file:
+    with open("final_project/operations.json") as json_file:
         json_data = json.load(json_file)
     executed_operations = [operation for operation in json_data if operation.get("state", "") == "EXECUTED"]
     sorted_operations = sorted(executed_operations, key=lambda x: datetime.strptime(x["date"], "%Y-%m-%dT%H:%M:%S.%f"))
@@ -24,5 +24,5 @@ def main():
 def mask_account(account):
     return "**" + account[-4:] if account else ""
 
-
-main()
+if __name__ == '__main__':
+    main()
